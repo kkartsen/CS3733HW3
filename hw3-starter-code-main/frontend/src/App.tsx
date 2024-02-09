@@ -47,6 +47,12 @@ function App() {
               <input type="text" id="location" name="location" required/>
           </div>
           <div>
+              <label htmlFor="startLang">Between languages: </label>
+              <input type="text" id="start" name="startLang" required/>
+              <label htmlFor={"endLang"}> and </label>
+              <input type={"text"} id={"end"} name={"endLang"} required/>
+          </div>
+          <div>
               <label htmlFor="status">Status:</label>
               <select id="status" name="status" required>
                   <option value="unassigned">Unassigned</option>
