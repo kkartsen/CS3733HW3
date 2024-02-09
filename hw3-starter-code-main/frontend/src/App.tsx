@@ -28,10 +28,39 @@ function App() {
   }
 
   return (
-      <div className="App">
-        <button onClick={postData}>post feedback</button>
-        <button onClick={getData}>get feedback</button>
-      </div>
+      <form id="serviceRequestForm">
+          <div>
+              <label htmlFor="employeeName">Name of the Employee:</label>
+              <input type="text" id="employeeName" name="employeeName" required/>
+          </div>
+          <div>
+              <label htmlFor="priority">Priority:</label>
+              <select id="priority" name="priority" required>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                  <option value="Emergency">Emergency</option>
+              </select>
+          </div>
+          <div>
+              <label htmlFor="location">Location:</label>
+              <input type="text" id="location" name="location" required/>
+          </div>
+          <div>
+              <label htmlFor="status">Status:</label>
+              <select id="status" name="status" required>
+                  <option value="unassigned">Unassigned</option>
+                  <option value="assigned">Assigned</option>
+                  <option value="inprogress">In Progress</option>
+                  <option value="completed">Completed</option>
+              </select>
+          </div>
+          <button type="submit">Submit</button>
+          <div className="App">
+              <button onClick={postData}>post feedback</button>
+              <button onClick={getData}>get feedback</button>
+          </div>
+      </form>
   );
 }
 
