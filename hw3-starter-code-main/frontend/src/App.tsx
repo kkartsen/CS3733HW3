@@ -30,11 +30,12 @@ function App() {
   return (
       <form id="serviceRequestForm">
           <div>
-              <label htmlFor="employeeName">Name of the Employee:</label>
-              <input type="text" id="employeeName" name="employeeName" required/>
+              <label htmlFor="employeeName">Name of the Employee: </label>
+              <input type="text" id="employeeName" name="employeeName" required/><br/>
           </div>
           <div>
-              <label htmlFor="priority">Priority:</label>
+              <br/>
+              <label htmlFor="priority">Priority: </label>
               <select id="priority" name="priority" required>
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
@@ -43,11 +44,44 @@ function App() {
               </select>
           </div>
           <div>
-              <label htmlFor="location">Location:</label>
-              <input type="text" id="location" name="location" required/>
+              <br/>
+              <label htmlFor="location">Location: </label>
+              <input type="text" id="location" name="location" required/><br/>
           </div>
           <div>
-              <label htmlFor="status">Status:</label>
+              <br/>
+              <label htmlFor="startLang">Between languages: </label>
+              <input type="text" id="start" name="startLang" required/>
+              <label htmlFor={"endLang"}> and </label>
+              <input type={"text"} id={"end"} name={"endLang"} required/><br/>
+          </div>
+          <div>
+              <br/>
+              <label htmlFor={"timeNeeded"}>When is this service required?</label><br/>
+              <input type={"radio"} id={"asap"} name={"when"} value={"now"}/>
+              <label htmlFor={"asap"}>Now</label><br/>
+              <input type={"radio"} id={"later"} name={"when"} value={"notnow"}/>
+              <label htmlFor={"later"}>Scheduled time</label><br/>
+              <label htmlFor={"specificTime"}>If translation is needed at a specific time, please enter the date when
+                  this service is required below:</label><br/>
+              <label htmlFor={"day"}>Day: </label>
+              <input type={"text"} id={"dayreq"} name={"day"}/>
+              <label htmlFor={"month"}> Month: </label>
+              <input type={"text"} id={"monthreq"} name={"month"}/>
+              <label htmlFor={"year"}> Year: </label>
+              <input type={"text"} id={"yearreq"} name={"year"}/><br/>
+          </div>
+          <div>
+              <br/>
+              <label htmlFor={"repeating?"}>Is this a repeating request?</label><br/>
+              <input type={"radio"} id={"yes"} name={"repeats?"} value={"repeats"}/>
+              <label htmlFor={"yes"}>Yes</label><br/>
+              <input type={"radio"} id={"no"} name={"repeats?"} value={"doesnotrepeat"}/>
+              <label htmlFor={"no"}>No</label><br/>
+          </div>
+          <div>
+              <br/>
+              <label htmlFor="status">Status: </label>
               <select id="status" name="status" required>
                   <option value="unassigned">Unassigned</option>
                   <option value="assigned">Assigned</option>
@@ -55,6 +89,7 @@ function App() {
                   <option value="completed">Completed</option>
               </select>
           </div>
+          <br/>
           <button type="submit">Submit</button>
           <div className="App">
               <button onClick={postData}>post feedback</button>
