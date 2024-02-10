@@ -111,6 +111,10 @@ function App() {
                     <option value={"Eight"}>8</option>
                     <option value={"Nine"}>9</option>
                 </select>
+                <select id={"am/pm"} name={"am/pm"}>
+                    <option value={"am"}>A.M.</option>
+                    <option value={"pm"}>P.M.</option>
+                </select>
             </div>
             <div className={"Repeat"}>
                 <br/>
