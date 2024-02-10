@@ -2,5 +2,39 @@
   text-align: center;
 }
 
+.Employee {
+  margin-top: 70px;
+  margin-left: 200px;
+}
 
+.Priority {
+  margin-left: 200px;
+}
 
+.Location {
+  margin-left: 200px;
+}
+
+.Languages {
+  margin-left: 200px;
+}
+
+.Time {
+  margin-left: 200px;
+}
+
+.SpecificTime {
+  margin-left: 200px;
+}
+
+.Repeat {
+  margin-left: 200px;
+}
+
+.Status {
+  margin-left: 200px;
+}
+
+.Submit {
+  margin-left: 200px;
+}
