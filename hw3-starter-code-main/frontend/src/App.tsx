@@ -28,8 +28,9 @@ function App() {
   }
 
     return (
-        <form id="serviceRequestForm">
+        <form id="serviceRequestForm" className={"box"}>
             <div className={"Employee"}>
+            <br/>
                 <label htmlFor="employeeName">Name of the Employee: </label>
                 <input type="text" id="employeeName" name="employeeName" required/><br/>
             </div>
@@ -134,10 +135,7 @@ function App() {
             <div className={"Submit"}>
                 <button type="submit">Submit</button>
             </div>
-            <div className="App">
-                <button onClick={postData}>post feedback</button>
-                <button onClick={getData}>get feedback</button>
-            </div>
+            <br/>
         </form>
     );
 }

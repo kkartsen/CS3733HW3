@@ -1,40 +1,46 @@
-.App {
-  text-align: center;
+body {
+  background-color: dodgerblue;
+}
+
+.box {
+  background-color: lightyellow;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
 .Employee {
-  margin-top: 70px;
-  margin-left: 200px;
+  margin-top: 50px;
+  margin-left: 150px;
 }
 
 .Priority {
-  margin-left: 200px;
+  margin-left: 150px;
 }
 
 .Location {
-  margin-left: 200px;
+  margin-left: 150px;
 }
 
 .Languages {
-  margin-left: 200px;
+  margin-left: 150px;
 }
 
 .Time {
-  margin-left: 200px;
+  margin-left: 150px;
 }
 
 .SpecificTime {
-  margin-left: 200px;
+  margin-left: 150px;
 }
 
 .Repeat {
-  margin-left: 200px;
+  margin-left: 150px;
 }
 
 .Status {
-  margin-left: 200px;
+  margin-left: 150px;
 }
 
 .Submit {
-  margin-left: 200px;
+  margin-left: 150px;
 }
