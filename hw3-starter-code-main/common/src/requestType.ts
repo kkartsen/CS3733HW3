@@ -7,7 +7,6 @@ export type request = {
     timeSchedule: string
     day: string
     month: string
-    time: string
     repeat: string
     status: Status
 }

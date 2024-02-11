@@ -30,7 +30,7 @@ function App() {
             setRequestList(res.data);
         }
         getData().then();
-    })
+    }, [])
 
 
     return (
@@ -50,7 +50,6 @@ function App() {
                     <td>Time Schedule</td>
                     <td>Day</td>
                     <td>Month</td>
-                    <td>Time</td>
                     <td>Repeat</td>
                     <td>Status</td>
                 </tr>
@@ -64,7 +63,6 @@ function App() {
                         <td>{req.timeSchedule}</td>
                         <td>{req.day}</td>
                         <td>{req.month}</td>
-                        <td>{req.time}</td>
                         <td>{req.repeat}</td>
                         <td>{req.status}</td>
                     </tr>
