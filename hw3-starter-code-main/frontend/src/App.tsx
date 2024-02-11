@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {employeeFeedback} from "common/src/types";
 import axios from "axios";
+import {RequestForm} from "./components/requestForm";
+import {request } from "./components/requestType"
 
 function App() {
-
+    const [requestList, setRequestList] = useState([]);
   async function postData() {
 
     const data: employeeFeedback = {
@@ -21,126 +23,55 @@ function App() {
       console.log("added feedback");
     }
   }
+    useEffect(() => {
+        async function getData() {
+            const res = await axios.get("api/request");
+            console.log(res.data);
+            setRequestList(res.data);
+        }
+        getData().then();
+    })
 
-  async function getData() {
-    const res = await axios.get("api/example");
-    console.log(res.data);
-  }
 
     return (
-        <form id="serviceRequestForm" className={"box"}>
-            <div className={"Employee"}>
-            <br/>
-                <label htmlFor="employeeName">Name of the Employee: </label>
-                <input type="text" id="employeeName" name="employeeName" required/><br/>
-            </div>
-            <div className={"Priority"}>
-                <br/>
-                <label htmlFor="priority">Priority: </label>
-                <select id="priority" name="priority" required>
-                    <option value={"Default"}>--Select--</option>
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                    <option value="Emergency">Emergency</option>
-                </select>
-            </div>
-            <div className={"Location"}>
-                <br/>
-                <label htmlFor="location">Location: </label>
-                <input type="text" id="location" name="location" required/><br/>
-            </div>
-            <div className={"Languages"}>
-                <br/>
-                <label htmlFor="startLang">Between languages: </label>
-                <input type="text" id="start" name="startLang" required/>
-                <label htmlFor={"endLang"}> and </label>
-                <input type={"text"} id={"end"} name={"endLang"} required/><br/>
-            </div>
-            <div className={"Time"}>
-                <br/>
-                <label htmlFor={"timeNeeded"}>When is this service required?</label><br/>
-                <input type={"radio"} id={"asap"} name={"when"} value={"now"}/>
-                <label htmlFor={"asap"}>Now</label><br/>
-                <input type={"radio"} id={"later"} name={"when"} value={"notnow"}/>
-                <label htmlFor={"later"}>Scheduled time</label><br/>
-            </div>
-            <div className={"SpecificTime"}>
-                <br/>
-                <label htmlFor={"specificTime"}>If translation is needed at a specific time, please enter when
-                    this service is required below:</label><br/>
-                <label htmlFor={"day"}>Day: </label>
-                <input type={"text"} id={"dayreq"} name={"day"}/>
-                <label htmlFor={"month"}> Month: </label>
-                <input type={"text"} id={"monthreq"} name={"month"}/>
-                <label htmlFor={"year"}> Year: </label>
-                <input type={"text"} id={"yearreq"} name={"year"}/><br/>
-                <label htmlFor={"hour"}>Time: </label>
-                <select id={"hour"} name={"hour"}>
-                    <option value={"One"}>1</option>
-                    <option value={"Two"}>2</option>
-                    <option value={"Three"}>3</option>
-                    <option value={"Four"}>4</option>
-                    <option value={"Five"}>5</option>
-                    <option value={"Six"}>6</option>
-                    <option value={"Seven"}>7</option>
-                    <option value={"Eight"}>8</option>
-                    <option value={"Nine"}>9</option>
-                    <option value={"Ten"}>10</option>
-                    <option value={"Eleven"}>11</option>
-                    <option value={"Twelve"}>12</option>
-                </select>
-                <label htmlFor={"minute"}> : </label>
-                <select id={"minute"} name={"minute"}>
-                    <option value={"Zero"}>0</option>
-                    <option value={"One"}>1</option>
-                    <option value={"Two"}>2</option>
-                    <option value={"Three"}>3</option>
-                    <option value={"Four"}>4</option>
-                    <option value={"Five"}>5</option>
-                </select>
-                <select id={"second"} name={"second"}>
-                    <option value={"Zero"}>0</option>
-                    <option value={"One"}>1</option>
-                    <option value={"Two"}>2</option>
-                    <option value={"Three"}>3</option>
-                    <option value={"Four"}>4</option>
-                    <option value={"Five"}>5</option>
-                    <option value={"Six"}>6</option>
-                    <option value={"Seven"}>7</option>
-                    <option value={"Eight"}>8</option>
-                    <option value={"Nine"}>9</option>
-                </select>
-                <select id={"am/pm"} name={"am/pm"}>
-                    <option value={"am"}>A.M.</option>
-                    <option value={"pm"}>P.M.</option>
-                </select>
-            </div>
-            <div className={"Repeat"}>
-                <br/>
-                <label htmlFor={"repeating?"}>Is this a repeating request?</label><br/>
-                <input type={"radio"} id={"yes"} name={"repeats?"} value={"repeats"}/>
-                <label htmlFor={"yes"}>Yes</label><br/>
-                <input type={"radio"} id={"no"} name={"repeats?"} value={"doesnotrepeat"}/>
-                <label htmlFor={"no"}>No</label><br/>
-            </div>
-            <div className={"Status"}>
-                <br/>
-                <label htmlFor="status">Status: </label>
-                <select id="status" name="status" required>
-                    <option value={"Default"}>--Select--</option>
-                    <option value="unassigned">Unassigned</option>
-                    <option value="assigned">Assigned</option>
-                    <option value="inprogress">In Progress</option>
-                    <option value="completed">Completed</option>
-                </select>
-            </div>
-            <br/>
-            <div className={"Submit"}>
-                <button type="submit">Submit</button>
-            </div>
-            <br/>
-        </form>
+        <>
+          <div className="App">
+            <RequestForm/>
+          </div>
+          <br/>
+          <div className="Table">
+            <table border={1} width="30%" cellPadding={10}>
+                <tr>
+                    <td>Name</td>
+                    <td>Priority</td>
+                    <td>Location</td>
+                    <td>From Language</td>
+                    <td>To Language</td>
+                    <td>Time Schedule</td>
+                    <td>Day</td>
+                    <td>Month</td>
+                    <td>Time</td>
+                    <td>Repeat</td>
+                    <td>Status</td>
+                </tr>
+                {requestList.map((req: request)=> (
+                    <tr>
+                        <td>{req.name}</td>
+                        <td>{req.priority}</td>
+                        <td>{req.location}</td>
+                        <td>{req.fromLanguage}</td>
+                        <td>{req.toLanguage}</td>
+                        <td>{req.timeSchedule}</td>
+                        <td>{req.day}</td>
+                        <td>{req.month}</td>
+                        <td>{req.time}</td>
+                        <td>{req.repeat}</td>
+                        <td>{req.status}</td>
+                    </tr>
+                ))}
+            </table>
+          </div>
+        </>
     );
 }
 
